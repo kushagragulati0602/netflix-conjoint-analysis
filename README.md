@@ -30,4 +30,3 @@ This is a **Python Streamlit** application for analyzing Netflix conjoint analys
 
 - `app.py`: Main Streamlit application file (UI & Routing).
 - `utils.py`: Helper functions for data generation and market share calculation.
-- `_archive/`: Contains the archived legacy React code.
