@@ -1,32 +1,26 @@
-# Netflix Conjoint Analysis (Python Edition)
+# 🎬 Netflix Consumer Choice Analysis
 
-This is a **Python Streamlit** application for analyzing Netflix conjoint analysis data. It replaces the previous React implementation with a pure Python solution for easier data science integration.
+**A Conjoint-Based Market Simulation & Interactive Dashboard**
 
-## Prerequisites
+This project simulates consumer subscription choices using conjoint analysis concepts and translates them into actionable pricing and product strategy insights. It is built as a polished, product-style analytics dashboard rather than a static academic exercise.
 
-- **Python 3.8+** installed on your system.
+---
 
-## Setup Instructions
+## 🚀 Screenshots
 
-1.  **Open a terminal** in this folder.
-2.  **Create a virtual environment** (optional but recommended):
-    ```bash
-    python -m venv .venv
-    # Windows:
-    .venv\Scripts\activate
-    # Mac/Linux:
-    source .venv/bin/activate
-    ```
-3.  **Install dependencies**:
-    ```bash
-    pip install streamlit pandas plotly numpy
-    ```
-4.  **Run the application**:
-    ```bash
-    streamlit run app.py
-    ```
+### Overview – Attribute Importance & Strategic Insight
+![Overview](assets/overview.png)
 
-## Project Structure
+### Part-Worth Utilities – Price, Ads, Quality & Screens
+![Utilities](assets/utilities.png)
 
-- `app.py`: Main Streamlit application file (UI & Routing).
-- `utils.py`: Helper functions for data generation and market share calculation.
+### Market Simulator – Predicted Market Share
+![Market Simulator](assets/simulator.png)
+
+---
+
+## 🔧 How to Run Locally
+
+```bash
+git clone https://github.com/kushagragulati0602/netflix-conjoint-analysis.git
+cd netflix-conjoint-analysis
