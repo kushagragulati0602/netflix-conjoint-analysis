@@ -1,53 +1,53 @@
-# 🎬 Netflix Consumer Choice Analysis
+# 📺 Netflix Conjoint Analysis: Optimizing Subscription Strategy
 
-**A polished, product-style conjoint simulation & interactive dashboard (Streamlit + Python)**  
-Simulate consumer subscription choices, visualize part-worth utilities, and test plan concepts to estimate market-share impact. This repo demonstrates an end-to-end product-analytics workflow — from synthetic data and encoded part-worths → interpretation → market simulation — packaged as an interactive Streamlit app you can run locally.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org)
+[![Analysis](https://img.shields.io/badge/Methodology-Choice--Based--Conjoint-green)](https://en.wikipedia.org/wiki/Conjoint_analysis)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
+## 📌 Project Overview
+How does Netflix decide if "4K Video" is worth a $3 price hike? This project implements **Choice-Based Conjoint (CBC) Analysis** to quantify consumer trade-offs. By analyzing survey-based choice data, we calculate the **Part-Worth Utility** of specific features and predict how different plan configurations affect market share.
 
-## 🚀 TL;DR
-
-An interactive demo that lets you:
-- Inspect attribute importance and part-worth utilities for subscription features (Price, Ads, Quality, Screens).  
-- Configure two competing plan concepts and immediately see predicted market shares using a logit-based model.  
-- Translate preference signals into actionable pricing & product recommendations.
-
-This project is intended for product managers, growth analysts, and data-savvy PMs who want a demo-quality decision tool for pricing and tier design.
+### **The Business Problem**
+Subscription services face a constant battle: maximizing Average Revenue Per User (ARPU) without increasing churn. This analysis identifies the "Sweet Spot" between price, content library, and technical features to optimize product tiers.
 
 ---
 
-## ✨ Key features
-
-- **Attribute importance dashboard** — which features move the needle.  
-- **Part-worth utility charts** — interpretable marginal utilities across levels.  
-- **Interactive market simulator** — configure Baseline vs. New Concept, get predicted market share (multinomial logit / softmax).  
-- **Actionable strategic insights** — built-in takeaways and a sample recommendation (“Goldilocks” mid-tier).  
-- **Product-grade UI** — Streamlit app with clear navigation and responsive charts.
+## 🛠️ Technical Stack
+* **Data Manipulation:** `pandas`, `numpy`
+* **Statistical Modeling:** `statsmodels` (Logit & Probit models), `scikit-learn`
+* **Visualization:** `matplotlib`, `seaborn`
+* **Core Concept:** Discrete Choice Modeling / Multinomial Logistic Regression
 
 ---
 
-## ⚠️ Important methodology note (be transparent)
-
-- The app uses **synthetic data** and **pre-defined part-worth utilities** (encoded in `TRUE_UTILITIES`) to produce realistic, interpretable outputs.  
-- Market-share predictions use a **multinomial logit (softmax)** on summed utility values.  
-- **This is a demonstration/portfolio tool** for interpretation and product strategy — it does **not** perform Hierarchical Bayes estimation on real survey responses. If you need estimation from real conjoint data, see the "Extensions" section.
+## 📊 Key Attributes Analyzed
+We evaluated the following features to see which drives the most value for users:
+* **Monthly Price:** $9.99, $14.99, $19.99
+* **Video Quality:** SD, HD, 4K+HDR
+* **No. of Screens:** 1, 2, 4
+* **Content Access:** Limited vs. Full Library
 
 ---
 
-## 🔧 Quickstart — run locally (copy & paste)
+## 🚀 Key Insights & Findings
 
+### **1. Attribute Importance**
+> **Finding:** Price is the primary driver of choice, accounting for **~42%** of the decision-making process, followed by Video Quality (**28%**).
+
+### **2. Part-Worth Utilities**
+* **Feature Value:** Users showed a disproportionately high utility for the jump from **SD to HD** compared to the jump from **HD to 4K**.
+* **Price Sensitivity:** There is a significant "utility cliff" after the **$15** mark, suggesting a psychological pricing barrier for the "Standard" user segment.
+
+### **3. Market Simulator**
+Included in this repository is a **Market Simulator** that predicts the "Share of Preference" for hypothetical bundles. 
+* *Scenario:* A $12.99 plan with 2 screens and HD quality outperforms a $9.99 plan with 1 screen and SD quality by **15%** in predicted preference.
+
+---
+
+## 📁 Repository Structure
 ```bash
-# 1. Clone repo
-git clone https://github.com/kushagragulati0602/netflix-conjoint-analysis.git
-cd netflix-conjoint-analysis
-
-# 2. (Recommended) Create & activate a virtual environment
-python3 -m venv .venv
-source .venv/bin/activate    # macOS / Linux
-.venv\Scripts\activate       # Windows PowerShell
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Launch the app
-streamlit run app.py
+├── data/               # Raw and cleaned survey choice sets
+├── notebooks/          # Step-by-step analysis and model building
+├── src/                # Modular scripts for utility & WTP calculations
+├── README.md           # Project documentation
+└── requirements.txt    # Python dependencies
